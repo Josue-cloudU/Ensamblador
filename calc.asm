@@ -36,7 +36,7 @@ mov ah, 09h
 lea dx, msg
 int 21h
 
-mov ah, 09h
+mov al, n1
 lea dx, n1
 int 21h
 
