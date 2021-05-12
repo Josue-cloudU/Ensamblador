@@ -6,6 +6,7 @@ n2 db 0
 r db 0
 msg db 10,13,7,'mult:','$'
 msg0 db 10,13,7,'Ingresa un numero:','$'
+conta db 1
 
 .code
 mov ax, seg @data
@@ -32,8 +33,10 @@ mov n2,al
 
 ;--------------------------------------------------------------------------------
 
+ciclo:
+
 mov al, n1
-mov bl, n2
+mov bl, conta
 mul bl ;se esta realizando multiplicacion
 mov r, al
 
@@ -53,6 +56,11 @@ mov ah,02h
 mov dl,bl
 add dl,30h
 int 21h
+
+cmp conta, 10 ;if conta=10
+jz fin
+jmp ciclo
+fin:
 
 .exit
 end
