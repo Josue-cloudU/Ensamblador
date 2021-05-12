@@ -6,7 +6,7 @@ n2 db 0
 r db 0
 msg db 10,13,7,' x ','$'
 msg0 db 10,13,7,'Ingresa el numero:','$'
-conta db 1
+conta db 10
 
 .code
 mov ax, seg @data
@@ -40,17 +40,17 @@ mov bl, n1
 mul bl ;se esta realizando multiplicacion
 mov r, al
 
-mov ah, 09h
-lea dx, conta
-int 21h
+;mov ah, 09h
+;lea dx, conta
+;int 21h
 
 mov ah, 09h
 lea dx, msg
 int 21h
 
-mov ah, 09h
-lea dx, n1
-int 21h
+;mov ah, 09h
+;lea dx, n1
+;int 21h
 
 mov dx,061 ;=
 mov ah,02h
