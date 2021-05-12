@@ -4,7 +4,6 @@
 n1 db 0
 r db 0
 msg db 10,13,7,' x ','$'
-msg1 db 10,13,7,' = ','$'
 msg0 db 10,13,7,'Ingresa el numero:','$'
 conta db 1
 
@@ -28,6 +27,10 @@ mov al, conta
 mov bl, n1
 mul bl ;se esta realizando multiplicacion
 mov r, al
+
+mov ah, 02h
+mov dl, 0ah ; salto de linea
+int 21h
 
 mov al, conta
 aam      ;desempacado
@@ -59,8 +62,16 @@ mov dl,bl
 add dl,30h
 int 21h
 
-mov ah, 09h
-lea dx, msg1
+mov dx,0 ;
+mov ah,02h
+int 21h
+
+mov dx,061 ;=
+mov ah,02h
+int 21h
+
+mov dx,0 ;
+mov ah,02h
 int 21h
 
 mov al,r
