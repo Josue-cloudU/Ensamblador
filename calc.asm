@@ -4,7 +4,7 @@
 n1 db 0
 n2 db 0
 r db 0
-msg db 10,13,7,'5 x 3:','$'
+msg db 10,13,7,' x ','$'
 msg0 db 10,13,7,'Ingresa el numero:','$'
 conta db 1
 
@@ -41,7 +41,19 @@ mul bl ;se esta realizando multiplicacion
 mov r, al
 
 mov ah, 09h
+lea dx, conta
+int 21h
+
+mov ah, 09h
 lea dx, msg
+int 21h
+
+mov ah, 09h
+lea dx, n1
+int 21h
+
+mov dx,061 ;=
+mov ah,02h
 int 21h
 
 mov al,r
@@ -59,7 +71,7 @@ int 21h
 
 inc conta
 
-cmp conta, 10 ;if conta=10
+cmp conta, 11 ;if conta=11
 jz fin
 jmp ciclo
 fin:
