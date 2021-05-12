@@ -36,9 +36,9 @@ mov ah, 09h
 lea dx, msg
 int 21h
 
-;mov ah, 09h
-;lea dx, n1
-;int 21h
+mov ah, 09h
+lea dx, n1
+int 21h
 
 mov dx,061 ;=
 mov ah,02h
