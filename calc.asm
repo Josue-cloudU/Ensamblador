@@ -3,7 +3,6 @@
 .data
 n1 db 0
 r db 0
-msg db 10,13,7,' x ','$'
 msg0 db 10,13,7,'Ingresa el numero:','$'
 conta db 1
 
@@ -45,8 +44,16 @@ mov dl,bl
 add dl,30h
 int 21h
 
-mov ah, 09h
-lea dx, msg
+mov dx,0 ;
+mov ah,02h
+int 21h
+
+mov dx,120 ;x
+mov ah,02h
+int 21h
+
+mov dx,0 ;
+mov ah,02h
 int 21h
 
 mov al,n1
