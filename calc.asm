@@ -4,8 +4,8 @@
 n1 db 0
 n2 db 0
 r db 0
-msg db 10,13,7,'mult:','$'
-msg0 db 10,13,7,'Ingresa un numero:','$'
+msg db 10,13,7,'5 x 3:','$'
+msg0 db 10,13,7,'Ingresa el numero:','$'
 conta db 1
 
 .code
@@ -35,8 +35,8 @@ mov n2,al
 
 ciclo:
 
-mov al, n1
-mov bl, conta
+mov al, conta
+mov bl, n1
 mul bl ;se esta realizando multiplicacion
 mov r, al
 
@@ -56,6 +56,8 @@ mov ah,02h
 mov dl,bl
 add dl,30h
 int 21h
+
+inc conta
 
 cmp conta, 10 ;if conta=10
 jz fin
