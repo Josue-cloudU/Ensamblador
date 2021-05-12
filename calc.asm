@@ -36,8 +36,17 @@ mov ah, 09h
 lea dx, msg
 int 21h
 
-mov al, n1
-lea dx, n1
+mov al,n1
+aam      ;desempacado
+mov bx,ax
+mov ah,02h
+mov dl,bh
+add dl,30h
+int 21h
+
+mov ah,02h
+mov dl,bl
+add dl,30h
 int 21h
 
 mov dx,061 ;=
