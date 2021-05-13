@@ -8,7 +8,9 @@ r db 0
 msg0 db 10,13,7,'Ingresa la calificacion:','$'
 msg1 db 10,13,7,'suma: ','$'
 msg2 db 10,13,7,'promedio: ','$'
-au db 3
+msg3 db 10,13,7,'Felicidades aprovaste','$'
+msg4 db 10,13,7,'Sigue participando, reprovaste','$'
+au db 6
 
 .code
 mov ax, seg @data
@@ -96,5 +98,43 @@ mov dl,bl
 add dl,30h
 int 21h
 
-.exit
-end
+;--------------------------------------------------------------------------
+
+;condicion de respuesta
+cmp r, au
+ja Aprovado
+cmp r, au
+jle Reprovado
+
+
+
+Aprovado:
+
+  mov ah, 02h
+  mov dl, 0ah ; salto de linea
+  int 21h
+
+  mov ah, 09h
+  lea dx, msg2
+  int 21h
+
+  jmp fin
+
+Reprovado:
+
+  mov ah, 02h
+  mov dl, 0ah ; salto de linea
+  int 21h
+
+  mov ah, 09h
+  lea dx, msg2
+  int 21h
+
+  jmp fin
+
+fin:
+  mov ah,4ch
+  int 21h
+  end
+;.exit
+;end
