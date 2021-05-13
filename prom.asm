@@ -46,8 +46,10 @@ mov n3,al
 
 mov al, n1
 add al, n2 ;suma numero 1 + numero 2
-mov al, n3
-add al, n2 ;suma resultado de numero 1 + numero 2 y suma al numero 3
+mov r, al
+
+mov al, r
+add al, n3 ;suma numero y 2 + numero 3
 mov r, al
 
 mov ah, 09h
