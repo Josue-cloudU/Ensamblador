@@ -101,10 +101,7 @@ int 21h
 ;--------------------------------------------------------------------------
 
 ;condicion de respuesta
-mov ax, r
-mov bx, au
-cmp ax, bx
-
+cmp r, au
 ja Aprovado
 jle Reprovado
 
