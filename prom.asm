@@ -104,8 +104,8 @@ int 21h
 mov ax, r
 mov bx, au
 cmp ax, bx
+
 ja Aprovado
-cmp ax,bx
 jle Reprovado
 
 
